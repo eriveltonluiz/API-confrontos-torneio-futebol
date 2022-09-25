@@ -1,0 +1,60 @@
+[
+  {
+    "time": "prim",
+    "jogadores": [
+      {
+        "nome": "tal1",
+        "rg": ""
+      },
+      {
+        "nome": "tal2",
+        "rg": ""
+      },
+      {
+        "nome": "tal3",
+        "rg": ""
+      },
+      {
+        "nome": "tal4",
+        "rg": ""
+      },
+      {
+        "nome": "tal5",
+        "rg": ""
+      },
+      {
+        "nome": "tal6",
+        "rg": ""
+      }
+    ]
+  },
+  {
+    "time": "seg",
+    "jogadores": [
+      {
+        "nome": "segtal1",
+        "rg": ""
+      },
+      {
+        "nome": "segtal2",
+        "rg": ""
+      },
+      {
+        "nome": "segtal3",
+        "rg": ""
+      },
+      {
+        "nome": "segtal4",
+        "rg": ""
+      },
+      {
+        "nome": "segtal5",
+        "rg": ""
+      },
+      {
+        "nome": "segtal6",
+        "rg": ""
+      }
+    ]
+  }
+]
