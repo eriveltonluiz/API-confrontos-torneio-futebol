@@ -21,33 +21,10 @@ public class AplicacaoConfrontosTorneio {
 
     public void criarTorneio(List<DadosEquipe> dadosEquipe){
         List<Equipe> equipes = dadosEquipe.stream()
-                .map(this::buildEquipe)
+                .map(Equipe::new)
                 .collect(Collectors.toList());
 
         confrontoService.elaborar(equipes);
-    }
-
-    private Equipe buildEquipe(DadosEquipe dadosEquipe) {
-        Equipe equipe = Equipe.builder()
-                .nome(dadosEquipe.getEquipe())
-                .totalGols(0)
-                .build();
-
-        List<Jogador> jogadores = dadosEquipe.getJogadores().stream()
-                .map(jogador -> buildJogador(jogador, equipe))
-                .collect(Collectors.toList());
-
-        equipe.adicionarJogadores(jogadores);
-
-        return equipe;
-    }
-
-    private Jogador buildJogador(DadosJogador jogador, Equipe equipe) {
-        return Jogador.builder()
-                .nome(jogador.getNome())
-                .rg(jogador.getRg())
-                .equipe(equipe)
-                .build();
     }
 
 }

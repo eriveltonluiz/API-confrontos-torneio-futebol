@@ -1,5 +1,6 @@
 package com.erivelton.torneiofutebol.dominio;
 
+import com.erivelton.torneiofutebol.aplicacao.dto.DadosJogador;
 import lombok.*;
 
 @Getter
@@ -22,4 +23,10 @@ public class Jogador {
     private Integer cartaoVermelho;
 
     private Equipe equipe;
+
+    public Jogador(DadosJogador jogador, Equipe equipe) {
+        this.rg = jogador.getRg();
+        this.nome = jogador.getNome();
+        this.equipe = equipe;
+    }
 }
