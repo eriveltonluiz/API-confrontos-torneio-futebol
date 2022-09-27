@@ -1,6 +1,6 @@
 [
   {
-    "time": "prim",
+    "equipe": "prim",
     "jogadores": [
       {
         "nome": "tal1",
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "time": "seg",
+    "equipe": "seg",
     "jogadores": [
       {
         "nome": "segtal1",

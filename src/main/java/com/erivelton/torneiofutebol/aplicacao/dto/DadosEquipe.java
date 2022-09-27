@@ -1,10 +1,11 @@
-package com.erivelton.torneiofutebol.aplicacao;
+package com.erivelton.torneiofutebol.aplicacao.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -15,6 +16,6 @@ public class DadosEquipe {
 
     private String equipe;
 
-    private List<DadosJogador> jogadores;
+    private List<DadosJogador> jogadores = new ArrayList<>();
 
 }
