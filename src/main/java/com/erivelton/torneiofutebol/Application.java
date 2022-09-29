@@ -1,7 +1,7 @@
 package com.erivelton.torneiofutebol;
 
 import com.erivelton.torneiofutebol.aplicacao.AplicacaoConfrontosTorneio;
-import com.erivelton.torneiofutebol.aplicacao.dto.DadosEquipe;
+import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
 import com.erivelton.torneiofutebol.dominio.porta.ConfrontoService;
 import com.erivelton.torneiofutebol.dominio.servicos.ConfrontoServiceImpl;
 import com.erivelton.torneiofutebol.infraestrutura.mapper.MapperJson;

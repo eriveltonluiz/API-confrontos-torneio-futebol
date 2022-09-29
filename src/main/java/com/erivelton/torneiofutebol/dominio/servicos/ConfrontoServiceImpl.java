@@ -7,9 +7,12 @@ import java.util.List;
 
 public class ConfrontoServiceImpl implements ConfrontoService {
 
+    private EtapasMataMataServico etapasMataMataServico = new EtapasMataMataServico();
+
     @Override
     public void elaborar(List<Equipe> equipes) {
-
+        int qtdConfrontos = equipes.size() / 2;
+        etapasMataMataServico.acrescentarEtapas(qtdConfrontos);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.erivelton.torneiofutebol.dominio;
 
-import com.erivelton.torneiofutebol.aplicacao.dto.DadosJogador;
+import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosJogador;
 import lombok.*;
 
 @Getter

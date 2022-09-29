@@ -1,6 +1,6 @@
 package com.erivelton.torneiofutebol.infraestrutura.mapper;
 
-import com.erivelton.torneiofutebol.aplicacao.dto.DadosEquipe;
+import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;

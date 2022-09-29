@@ -1,10 +1,8 @@
 package com.erivelton.torneiofutebol.aplicacao;
 
-import com.erivelton.torneiofutebol.aplicacao.dto.DadosEquipe;
-import com.erivelton.torneiofutebol.aplicacao.dto.DadosJogador;
-import com.erivelton.torneiofutebol.dominio.porta.ConfrontoService;
+import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
 import com.erivelton.torneiofutebol.dominio.Equipe;
-import com.erivelton.torneiofutebol.dominio.Jogador;
+import com.erivelton.torneiofutebol.dominio.porta.ConfrontoService;
 import jakarta.inject.Singleton;
 
 import java.util.List;

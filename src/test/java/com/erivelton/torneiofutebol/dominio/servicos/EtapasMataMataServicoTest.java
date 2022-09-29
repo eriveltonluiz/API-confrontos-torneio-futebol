@@ -1,0 +1,53 @@
+package com.erivelton.torneiofutebol.dominio.servicos;
+
+import com.erivelton.torneiofutebol.dominio.Etapa;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class EtapasMataMataServicoTest {
+
+    private EtapasMataMataServico etapasMataMataServico;
+
+    @BeforeEach
+    void init(){
+        etapasMataMataServico = new EtapasMataMataServico();
+    }
+
+    @Test
+    void deveRetornarEtapasFinaisComAvos() {
+        List<String> etapasFinaisComAvosEsperada = Arrays.asList("32 Avos", "16 Avos", Etapa.OITAVAS.getEtapa(), Etapa.QUARTAS.getEtapa(), Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
+        elaborar(etapasFinaisComAvosEsperada, 32);
+    }
+
+    @Test
+    void deveRetornarEtapasFinaisAPartirDasOitavas() {
+        List<String> etapasFinaisEsperada = Arrays.asList(Etapa.OITAVAS.getEtapa(), Etapa.QUARTAS.getEtapa(), Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
+        elaborar(etapasFinaisEsperada, 8);
+    }
+
+    @Test
+    void deveRetornarEtapasFinaisComMenosDeOitoConfrontos(){
+        List<String> etapasFinaisEsperada = Arrays.asList(Etapa.QUARTAS.getEtapa(), Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
+        elaborar(etapasFinaisEsperada, 4);
+    }
+
+    @Test
+    void deveRetornarEtapasFinaisAPartirDaSemifinal(){
+        List<String> etapasFinaisEsperada = Arrays.asList(Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
+        elaborar(etapasFinaisEsperada, 2);
+    }
+
+    private void elaborar(List<String> etapasEsperadas, Integer quantidadeConfrontos){
+        List<String> resultado = etapasMataMataServico.acrescentarEtapas(quantidadeConfrontos);
+
+        assertEquals(etapasEsperadas.size(), resultado.size());
+        assertTrue(resultado.containsAll(etapasEsperadas));
+        assertTrue(resultado.contains(Etapa.TERCEIRO_LUGAR.getEtapa()));
+
+    }
+}

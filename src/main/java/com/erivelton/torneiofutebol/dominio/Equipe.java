@@ -1,6 +1,6 @@
 package com.erivelton.torneiofutebol.dominio;
 
-import com.erivelton.torneiofutebol.aplicacao.dto.DadosEquipe;
+import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 

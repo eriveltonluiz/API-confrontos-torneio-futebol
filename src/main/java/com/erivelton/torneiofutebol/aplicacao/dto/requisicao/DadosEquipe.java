@@ -1,4 +1,4 @@
-package com.erivelton.torneiofutebol.aplicacao.dto;
+package com.erivelton.torneiofutebol.aplicacao.dto.requisicao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
