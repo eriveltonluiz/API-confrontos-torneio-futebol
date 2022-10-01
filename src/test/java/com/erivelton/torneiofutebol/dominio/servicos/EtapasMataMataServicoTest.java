@@ -21,33 +21,33 @@ class EtapasMataMataServicoTest {
     @Test
     void deveRetornarEtapasFinaisComAvos() {
         List<String> etapasFinaisComAvosEsperada = Arrays.asList("32 Avos", "16 Avos", Etapa.OITAVAS.getEtapa(), Etapa.QUARTAS.getEtapa(), Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
-        elaborar(etapasFinaisComAvosEsperada, 32);
+        elaborar(etapasFinaisComAvosEsperada, new Integer[]{32});
     }
 
     @Test
     void deveRetornarEtapasFinaisAPartirDasOitavas() {
         List<String> etapasFinaisEsperada = Arrays.asList(Etapa.OITAVAS.getEtapa(), Etapa.QUARTAS.getEtapa(), Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
-        elaborar(etapasFinaisEsperada, 8);
+        elaborar(etapasFinaisEsperada, new Integer[]{8});
     }
 
     @Test
     void deveRetornarEtapasFinaisComMenosDeOitoConfrontos(){
         List<String> etapasFinaisEsperada = Arrays.asList(Etapa.QUARTAS.getEtapa(), Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
-        elaborar(etapasFinaisEsperada, 4);
+        elaborar(etapasFinaisEsperada, new Integer[]{4});
     }
 
     @Test
     void deveRetornarEtapasFinaisAPartirDaSemifinal(){
         List<String> etapasFinaisEsperada = Arrays.asList(Etapa.SEMI.getEtapa(), Etapa.TERCEIRO_LUGAR.getEtapa(), Etapa.FINAL.getEtapa());
-        elaborar(etapasFinaisEsperada, 2);
+        elaborar(etapasFinaisEsperada, new Integer[]{2});
     }
 
-    private void elaborar(List<String> etapasEsperadas, Integer quantidadeConfrontos){
+    private void elaborar(List<String> etapasEsperadas, Integer[] quantidadeConfrontos){
         List<String> resultado = etapasMataMataServico.acrescentarEtapas(quantidadeConfrontos);
 
+        assertEquals(etapasEsperadas, resultado);
         assertEquals(etapasEsperadas.size(), resultado.size());
         assertTrue(resultado.containsAll(etapasEsperadas));
         assertTrue(resultado.contains(Etapa.TERCEIRO_LUGAR.getEtapa()));
-
     }
 }

@@ -2,41 +2,32 @@ package com.erivelton.torneiofutebol.dominio.servicos;
 
 import com.erivelton.torneiofutebol.dominio.Etapa;
 
-import java.util.*;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 public class EtapasMataMataServico {
 
-    public List<String> acrescentarEtapas(Integer quantidadeConfrontos) {
-        String avos = " Avos";
-        Map<String, Integer> etapasFinais = new HashMap<>(
-                Map.of(
-                        Etapa.OITAVAS.getEtapa(), 8, Etapa.QUARTAS.getEtapa(), 4, Etapa.SEMI.getEtapa(), 2,Etapa.TERCEIRO_LUGAR.getEtapa(), 2, Etapa.FINAL.getEtapa(), 1
-                )
-        );
-
+    public List<String> acrescentarEtapas(Integer[] quantidadeConfrontos) {
         List<String> etapas = new ArrayList<>();
 
-        int valorInicial = quantidadeConfrontos;
-        Supplier<Stream<Integer>> quantidadeAvos = () -> Stream.iterate(valorInicial, etapa -> etapa > 8, etapa -> etapa / 2);
+        Map<String, Integer> etapasFinais = new HashMap<>(Map.of(
+                Etapa.OITAVAS.getEtapa(), 8, Etapa.QUARTAS.getEtapa(), 4, Etapa.SEMI.getEtapa(), 2,Etapa.TERCEIRO_LUGAR.getEtapa(), 2, Etapa.FINAL.getEtapa(), 1
+        ));
 
-        if(quantidadeAvos.get().iterator().hasNext()){
-            List<String> etapasAvos = quantidadeAvos.get()
-                    .map(valor -> String.valueOf(valor).concat(avos))
-                    .collect(Collectors.toList());
+        if(quantidadeConfrontos[0] > 8) {
+            Stream.iterate(quantidadeConfrontos[0], etapa -> etapa > 8, etapa -> etapa / 2)
+                    .forEach(etapa -> etapas.add(String.valueOf(etapa).concat(Etapa.AVOS.getEtapa())));
 
-            etapas.addAll(etapasAvos);
-
-            quantidadeConfrontos = Integer.valueOf(8);
+            quantidadeConfrontos[0] = 8;
         }
 
-        int comparador = quantidadeConfrontos;
-        etapasFinais.values()
-                .removeIf(valor -> valor > comparador);
-
-        etapasFinais.forEach((chave, valor) -> etapas.add(chave));
+        etapasFinais.values().removeIf(confrontosEtapa -> confrontosEtapa > quantidadeConfrontos[0]);
+        etapasFinais.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .forEach(valor -> etapas.add(valor.getKey()));
 
         return etapas;
     }

@@ -3,6 +3,7 @@ package com.erivelton.torneiofutebol.dominio;
 import lombok.Getter;
 
 public enum Etapa {
+    AVOS(" Avos"),
     OITAVAS("Oitavas de final"),
     QUARTAS("Quartas de final"),
     SEMI("Semifinal"),

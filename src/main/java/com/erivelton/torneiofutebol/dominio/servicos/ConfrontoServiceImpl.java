@@ -11,7 +11,7 @@ public class ConfrontoServiceImpl implements ConfrontoService {
 
     @Override
     public void elaborar(List<Equipe> equipes) {
-        int qtdConfrontos = equipes.size() / 2;
+        Integer[] qtdConfrontos = {equipes.size() / 2};
         etapasMataMataServico.acrescentarEtapas(qtdConfrontos);
     }
 
