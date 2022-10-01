@@ -14,14 +14,17 @@ import javax.persistence.*;
 public class JogadorEntity {
 
     @Id
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false, name = "RG")
     private String rg;
 
+    @Column(nullable = false, name = "NOME")
     private String nome;
 
+    @Column(name = "GOL")
     private Integer gol;
 
     @Column(name = "CARTAO_AMARELO")
@@ -31,5 +34,6 @@ public class JogadorEntity {
     private Integer cartaoVermelho;
 
     @ManyToOne
+    @JoinColumn(name = "EQUIPE", nullable = false)
     private EquipeEntity equipe;
 }

@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @AllArgsConstructor
@@ -16,14 +13,29 @@ import javax.persistence.Table;
 @Table(name = "CONFRONTO")
 public class ConfrontoEntity {
 
-    @EmbeddedId
-    private ConfrontoPk id = new ConfrontoPk();
+    @Id
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "MANDANTE_ID")
+    private EquipeEntity mandante;
+
+    @ManyToOne
+    @JoinColumn(name = "VISITANTE_ID")
+    private EquipeEntity visitante;
+
+    @Column(name = "ETAPA")
     private String etapa;
+
+    @Column(name = "ORDEM")
+    private Integer ordem;
 
     @Column(name = "GOLS_MANDANTE")
     private Integer golsMandante;
 
     @Column(name = "GOLS_VISITANTE")
     private Integer golsVisitante;
+
 }

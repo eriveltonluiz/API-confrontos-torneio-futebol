@@ -45,9 +45,8 @@ class EtapasMataMataServicoTest {
     private void elaborar(List<String> etapasEsperadas, Integer[] quantidadeConfrontos){
         List<String> resultado = etapasMataMataServico.acrescentarEtapas(quantidadeConfrontos);
 
-        assertEquals(etapasEsperadas, resultado);
+        assertIterableEquals(etapasEsperadas, resultado);
         assertEquals(etapasEsperadas.size(), resultado.size());
         assertTrue(resultado.containsAll(etapasEsperadas));
-        assertTrue(resultado.contains(Etapa.TERCEIRO_LUGAR.getEtapa()));
     }
 }

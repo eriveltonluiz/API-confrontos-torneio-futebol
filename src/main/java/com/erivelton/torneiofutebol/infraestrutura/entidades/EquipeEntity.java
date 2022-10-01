@@ -13,10 +13,11 @@ import javax.persistence.*;
 public class EquipeEntity {
 
     @Id
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, name = "NOME")
     private String nome;
 
     @Column(name = "TOTAL_GOLS")
