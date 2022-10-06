@@ -1,16 +1,16 @@
 package com.erivelton.torneiofutebol.infraestrutura.entidades;
 
+import com.erivelton.torneiofutebol.dominio.Confronto;
+import com.erivelton.torneiofutebol.infraestrutura.repositorios.MicronautEquipeRepository;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "CONFRONTO")
+@AllArgsConstructor
+@Table(name = "CONFRONTO_ENTITY")
 public class ConfrontoEntity {
 
     @Id
@@ -26,10 +26,10 @@ public class ConfrontoEntity {
     @JoinColumn(name = "VISITANTE_ID")
     private EquipeEntity visitante;
 
-    @Column(name = "ETAPA")
+    @Column(name = "ETAPA", nullable = false)
     private String etapa;
 
-    @Column(name = "ORDEM")
+    @Column(name = "ORDEM", nullable = false)
     private Integer ordem;
 
     @Column(name = "GOLS_MANDANTE")
@@ -37,5 +37,21 @@ public class ConfrontoEntity {
 
     @Column(name = "GOLS_VISITANTE")
     private Integer golsVisitante;
+
+    public ConfrontoEntity(){
+    }
+
+    public ConfrontoEntity(MicronautEquipeRepository micronautEquipeRepository, Confronto confronto) {
+        this.mandante = confronto.getMandante() != null
+                ? micronautEquipeRepository.findByNome(confronto.getNomeTimeMandante()) :
+                null;
+
+        this.visitante = confronto.getVisitante() != null
+                ? micronautEquipeRepository.findByNome(confronto.getNomeTimeVisitante())
+                : null;
+
+        this.etapa = confronto.getEtapa();
+        this.ordem = confronto.getOrdem();
+    }
 
 }

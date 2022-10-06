@@ -2,27 +2,27 @@ package com.erivelton.torneiofutebol.aplicacao;
 
 import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
 import com.erivelton.torneiofutebol.dominio.Equipe;
-import com.erivelton.torneiofutebol.dominio.porta.ConfrontoService;
+import com.erivelton.torneiofutebol.dominio.porta.ModeloCampeonato;
 import jakarta.inject.Singleton;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Singleton
-public class AplicacaoConfrontosTorneio {
+public class AplicacaoModeloCampeonato {
 
-    private final ConfrontoService confrontoService;
+    private final ModeloCampeonato modeloCampeonato;
 
-    public AplicacaoConfrontosTorneio(ConfrontoService confrontoService) {
-        this.confrontoService = confrontoService;
+    public AplicacaoModeloCampeonato(ModeloCampeonato modeloCampeonato) {
+        this.modeloCampeonato = modeloCampeonato;
     }
 
-    public void criarTorneio(List<DadosEquipe> dadosEquipe){
+    public void criar(List<DadosEquipe> dadosEquipe){
         List<Equipe> equipes = dadosEquipe.stream()
                 .map(Equipe::new)
                 .collect(Collectors.toList());
 
-        confrontoService.elaborar(equipes);
+        modeloCampeonato.elaborar(equipes);
     }
 
 }

@@ -1,16 +1,13 @@
 package com.erivelton.torneiofutebol.dominio;
 
 import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
-import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Getter
 @SuperBuilder
-@NoArgsConstructor
 public class Equipe {
 
     private String nome;
@@ -19,19 +16,37 @@ public class Equipe {
 
     private List<Jogador> jogadores = new ArrayList<>();
 
-    public Equipe(String nome, Integer totalGols) {
+    public Equipe(String nome) {
         this.nome = nome;
-        this.totalGols = totalGols;
+    }
+
+    public Equipe() {
     }
 
     public Equipe(DadosEquipe dadosEquipe) {
         this.nome = dadosEquipe.getEquipe();
 
         List<Jogador> jogadores = dadosEquipe.getJogadores().stream()
-                .map(jogador -> new Jogador(jogador, this))
+                .map(jogador -> new Jogador(jogador.getRg(), jogador.getNome(), this))
                 .collect(Collectors.toList());
 
         this.jogadores.addAll(jogadores);
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Integer getTotalGols() {
+        return totalGols;
+    }
+
+    public List<Jogador> getJogadores() {
+        return jogadores;
+    }
+
+    public void adicionarJogadores(List<Jogador> jogadoresDominio) {
+        this.jogadores.addAll(jogadoresDominio);
     }
 
 }

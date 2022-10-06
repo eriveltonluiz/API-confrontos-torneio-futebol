@@ -1,13 +1,5 @@
 package com.erivelton.torneiofutebol.dominio;
 
-import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosJogador;
-import lombok.*;
-
-@Getter
-@Setter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Jogador {
 
     private Long id;
@@ -24,9 +16,45 @@ public class Jogador {
 
     private Equipe equipe;
 
-    public Jogador(DadosJogador jogador, Equipe equipe) {
-        this.rg = jogador.getRg();
-        this.nome = jogador.getNome();
+    public Jogador() {
+    }
+
+    public Jogador(String rg, String nome, Equipe equipe) {
+        this.rg = rg;
+        this.nome = nome;
         this.equipe = equipe;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Integer getGol() {
+        return gol;
+    }
+
+    public Integer getCartaoAmarelo() {
+        return cartaoAmarelo;
+    }
+
+    public Integer getCartaoVermelho() {
+        return cartaoVermelho;
+    }
+
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
+    }
+
+    public Equipe getEquipe() {
+        return equipe;
+    }
+
 }

@@ -1,8 +1,13 @@
 package com.erivelton.torneiofutebol.aplicacao.configuracao;
 
-import com.erivelton.torneiofutebol.aplicacao.AplicacaoConfrontosTorneio;
-import com.erivelton.torneiofutebol.dominio.porta.ConfrontoService;
-import com.erivelton.torneiofutebol.dominio.servicos.ConfrontoServiceImpl;
+import com.erivelton.torneiofutebol.aplicacao.AplicacaoModeloCampeonato;
+import com.erivelton.torneiofutebol.aplicacao.Inicializador;
+import com.erivelton.torneiofutebol.dominio.porta.ConfrontoRepositoryPorta;
+import com.erivelton.torneiofutebol.dominio.porta.EquipeRepositoryPorta;
+import com.erivelton.torneiofutebol.dominio.porta.ModeloCampeonato;
+import com.erivelton.torneiofutebol.dominio.servicos.EquipesMataMataServico;
+import com.erivelton.torneiofutebol.dominio.servicos.EtapasMataMataServico;
+import com.erivelton.torneiofutebol.dominio.servicos.Torneio;
 import io.micronaut.context.annotation.Factory;
 import jakarta.inject.Singleton;
 
@@ -10,13 +15,19 @@ import jakarta.inject.Singleton;
 public class BeanFactory {
 
     @Singleton
-    public AplicacaoConfrontosTorneio getAplicacaoConfrontosTorneio(ConfrontoService confrontoService){
-        return new AplicacaoConfrontosTorneio(confrontoService);
+    public ModeloCampeonato getModeloCampeonato(ConfrontoRepositoryPorta confrontoRepositoryPorta, EquipeRepositoryPorta equipeRepositoryPorta){
+        return new Torneio(confrontoRepositoryPorta, equipeRepositoryPorta, new EtapasMataMataServico(), new EquipesMataMataServico());
     }
 
     @Singleton
-    public ConfrontoService getConfrontoService(){
-        return new ConfrontoServiceImpl();
+    public AplicacaoModeloCampeonato getAplicacaoModeloCampeonato(ModeloCampeonato modeloCampeonato){
+        return new AplicacaoModeloCampeonato(modeloCampeonato);
     }
+
+    @Singleton
+    public Inicializador getInicializador(AplicacaoModeloCampeonato aplicacaoModeloCampeonato){
+        return new Inicializador(aplicacaoModeloCampeonato);
+    }
+
 
 }

@@ -1,27 +1,17 @@
 package com.erivelton.torneiofutebol;
 
-import com.erivelton.torneiofutebol.aplicacao.AplicacaoConfrontosTorneio;
-import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
-import com.erivelton.torneiofutebol.dominio.porta.ConfrontoService;
-import com.erivelton.torneiofutebol.dominio.servicos.ConfrontoServiceImpl;
-import com.erivelton.torneiofutebol.infraestrutura.mapper.MapperJson;
+import com.erivelton.torneiofutebol.aplicacao.Inicializador;
 import io.micronaut.runtime.Micronaut;
-
-import java.io.IOException;
-import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        Micronaut.run(Application.class, args);
+//        Micronaut.build(args)
+//                .classes(Inicializador.class)
+//                .eagerInitSingletons(true)
+//                .args(args)
+//                .mainClass(Application.class)
+//                .start();
 
-        MapperJson mapperJson = new MapperJson();
-        try {
-            List<DadosEquipe> dadosEquipe = mapperJson.transformarEmObjeto();
-            ConfrontoService confrontoService = new ConfrontoServiceImpl();
-            AplicacaoConfrontosTorneio aplicacaoConfrontosTorneio = new AplicacaoConfrontosTorneio(confrontoService);
-            aplicacaoConfrontosTorneio.criarTorneio(dadosEquipe);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Micronaut.run(Application.class, args);
     }
 }

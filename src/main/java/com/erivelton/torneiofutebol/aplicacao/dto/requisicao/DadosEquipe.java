@@ -1,5 +1,6 @@
 package com.erivelton.torneiofutebol.aplicacao.dto.requisicao;
 
+import io.micronaut.core.annotation.Introspected;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Builder
+@Introspected
 public class DadosEquipe {
 
     private String equipe;

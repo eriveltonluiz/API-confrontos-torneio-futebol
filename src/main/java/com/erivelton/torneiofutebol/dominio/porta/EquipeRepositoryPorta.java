@@ -4,8 +4,8 @@ import com.erivelton.torneiofutebol.dominio.Equipe;
 
 import java.util.List;
 
-public interface ConfrontoService {
+public interface EquipeRepositoryPorta {
 
-    void elaborar(List<Equipe> equipes);
+    List<Equipe> salvarTodos(List<Equipe> equipes);
 
 }
