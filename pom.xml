@@ -106,6 +106,10 @@
       <version>1.18.18</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>io.micronaut.kafka</groupId>
+      <artifactId>micronaut-kafka</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

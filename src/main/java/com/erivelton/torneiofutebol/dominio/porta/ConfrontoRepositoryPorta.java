@@ -8,5 +8,5 @@ public interface ConfrontoRepositoryPorta {
 
     void adicionarTodos(List<Confronto> confrontos);
 
-    void atualizarNasEtapas();
+    void atualizarConfronto(Confronto confronto);
 }

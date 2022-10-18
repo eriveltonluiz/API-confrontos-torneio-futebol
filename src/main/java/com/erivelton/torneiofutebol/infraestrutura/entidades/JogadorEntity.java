@@ -5,6 +5,7 @@ import com.erivelton.torneiofutebol.dominio.Jogador;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -25,6 +26,7 @@ public class JogadorEntity {
     @Column(nullable = false, name = "NOME")
     private String nome;
 
+    @Setter
     @Column(name = "GOL")
     private Integer gol;
 
@@ -44,10 +46,15 @@ public class JogadorEntity {
     public JogadorEntity(Jogador jogador, EquipeEntity equipe) {
         this.rg = jogador.getRg();
         this.nome = jogador.getNome();
+        this.gol = 0;
         this.equipe = equipe;
     }
 
     public Jogador paraEquipe(Equipe equipe) {
         return new Jogador(this.rg, this.nome, equipe);
+    }
+
+    public void atualizarGols(Integer gols) {
+        this.gol = this.gol + gols;
     }
 }

@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Entity
@@ -28,7 +29,7 @@ public class EquipeEntity {
     @Column(name = "TOTAL_GOLS")
     private Integer totalGols;
 
-    @OneToMany(mappedBy = "equipe", cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "equipe", cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     private List<JogadorEntity> jogadores = new ArrayList<>();
 
     public EquipeEntity() {
@@ -52,4 +53,15 @@ public class EquipeEntity {
         equipe.adicionarJogadores(jogadoresDominio);
         return equipe;
     }
+
+    public void atulizarGolsJogadoresEquipe(Map<String, Integer> golsJogadores) {
+        this.jogadores.stream()
+                .filter(jogador -> golsJogadores.containsKey(jogador.getNome()))
+                .forEach(
+                        jogador -> jogador.atualizarGols(
+                                golsJogadores.get(jogador.getNome())
+                        )
+                );
+    }
+
 }

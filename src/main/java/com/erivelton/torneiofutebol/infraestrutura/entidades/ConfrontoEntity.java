@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.Map;
 
 @Getter
 @Entity
@@ -54,4 +55,13 @@ public class ConfrontoEntity {
         this.ordem = confronto.getOrdem();
     }
 
+    public void atulizarGolsTimes(Integer golsMandante, Integer golsVisitante) {
+        this.golsMandante = golsMandante;
+        this.golsVisitante = golsVisitante;
+    }
+
+    public void atulizarGolsJogadoresTimes(Map<String, Integer> golsJogadoresMandante, Map<String, Integer> golsJogadoresVisitante) {
+        this.mandante.atulizarGolsJogadoresEquipe(golsJogadoresMandante);
+        this.visitante.atulizarGolsJogadoresEquipe(golsJogadoresVisitante);
+    }
 }

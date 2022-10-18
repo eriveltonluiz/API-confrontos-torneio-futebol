@@ -45,4 +45,9 @@ public class Torneio implements ModeloCampeonato {
         confrontoRepositoryPorta.adicionarTodos(confrontos);
     }
 
+    @Override
+    public void mapearDadosConfronto(Confronto confronto) {
+        confrontoRepositoryPorta.atualizarConfronto(confronto);
+    }
+
 }

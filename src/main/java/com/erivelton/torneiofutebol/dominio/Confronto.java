@@ -1,9 +1,14 @@
 package com.erivelton.torneiofutebol.dominio;
 
-import lombok.Builder;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+import java.util.HashMap;
+import java.util.Map;
+
+@SuperBuilder
 public class Confronto {
+
+    private Long identificacao;
 
     private Equipe mandante;
 
@@ -17,6 +22,10 @@ public class Confronto {
 
     private Integer golsVisitante;
 
+    private Map<String, Integer> golsJogadoresMandante = new HashMap<>();
+
+    private Map<String, Integer> golsJogadoresVisitante = new HashMap<>();
+
     public Confronto() {
     }
 
@@ -27,6 +36,18 @@ public class Confronto {
         this.ordem = ordem;
         this.golsMandante = golsMandante;
         this.golsVisitante = golsVisitante;
+    }
+
+    public Confronto(Long identificacao, Integer golsMandante, Integer golsVisitante, Map<String, Integer> golsJogadoresMandante, Map<String, Integer> golsJogadoresVisitante) {
+        this.identificacao = identificacao;
+        this.golsMandante = golsMandante;
+        this.golsVisitante = golsVisitante;
+        this.golsJogadoresMandante.putAll(golsJogadoresMandante);
+        this.golsJogadoresVisitante.putAll(golsJogadoresVisitante);
+    }
+
+    public Long getIdentificacao() {
+        return identificacao;
     }
 
     public Equipe getMandante() {
@@ -61,4 +82,11 @@ public class Confronto {
         return this.visitante.getNome();
     }
 
+    public Map<String, Integer> getGolsJogadoresMandante() {
+        return golsJogadoresMandante;
+    }
+
+    public Map<String, Integer> getGolsJogadoresVisitante() {
+        return golsJogadoresVisitante;
+    }
 }

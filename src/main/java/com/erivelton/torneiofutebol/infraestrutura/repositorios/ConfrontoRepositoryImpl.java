@@ -1,12 +1,13 @@
 package com.erivelton.torneiofutebol.infraestrutura.repositorios;
 
 import com.erivelton.torneiofutebol.dominio.Confronto;
+import com.erivelton.torneiofutebol.dominio.RecursoNaoEncontradoException;
 import com.erivelton.torneiofutebol.dominio.porta.ConfrontoRepositoryPorta;
 import com.erivelton.torneiofutebol.infraestrutura.entidades.ConfrontoEntity;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import lombok.AllArgsConstructor;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +29,17 @@ public class ConfrontoRepositoryImpl implements ConfrontoRepositoryPorta {
     }
 
     @Override
-    public void atualizarNasEtapas() {
+    public void atualizarConfronto(Confronto confronto) {
+        ConfrontoEntity confrontoEntity = micronautConfrontoRepository.
+                findById(confronto.getIdentificacao())
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Identificação do confronto não foi encontrado"));
 
+        confrontoEntity.atulizarGolsTimes(confronto.getGolsMandante(), confronto.getGolsVisitante());
+        confrontoEntity.atulizarGolsJogadoresTimes(confronto.getGolsJogadoresMandante(), confronto.getGolsJogadoresVisitante());
+
+        micronautEquipeRepository.updateAll(Arrays.asList(confrontoEntity.getMandante(), confrontoEntity.getVisitante()));
+
+        micronautConfrontoRepository.update(confrontoEntity);
     }
+
 }

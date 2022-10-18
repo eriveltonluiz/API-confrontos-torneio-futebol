@@ -1,6 +1,8 @@
 package com.erivelton.torneiofutebol.aplicacao;
 
+import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.ConfrontoRequisicao;
 import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
+import com.erivelton.torneiofutebol.dominio.Confronto;
 import com.erivelton.torneiofutebol.dominio.Equipe;
 import com.erivelton.torneiofutebol.dominio.porta.ModeloCampeonato;
 import jakarta.inject.Singleton;
@@ -23,6 +25,11 @@ public class AplicacaoModeloCampeonato {
                 .collect(Collectors.toList());
 
         modeloCampeonato.elaborar(equipes);
+    }
+
+    public void adicionarDadosConfronto(ConfrontoRequisicao confrontoRequisicao){
+        Confronto confronto = confrontoRequisicao.paraConfrontoDominio();
+        modeloCampeonato.mapearDadosConfronto(confronto);
     }
 
 }
