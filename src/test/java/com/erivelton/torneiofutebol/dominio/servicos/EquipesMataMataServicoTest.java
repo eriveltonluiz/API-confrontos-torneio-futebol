@@ -1,8 +1,9 @@
 package com.erivelton.torneiofutebol.dominio.servicos;
 
-import com.erivelton.torneiofutebol.dominio.Confronto;
-import com.erivelton.torneiofutebol.dominio.Equipe;
-import com.erivelton.torneiofutebol.dominio.Etapa;
+import com.erivelton.torneiofutebol.dominio.modelo.confronto.Confronto;
+import com.erivelton.torneiofutebol.dominio.modelo.Equipe;
+import com.erivelton.torneiofutebol.dominio.modelo.confronto.ConfrontosEquipesMataMataServico;
+import com.erivelton.torneiofutebol.dominio.modelo.etapa.Etapa;
 import com.erivelton.torneiofutebol.utils.ConstrutorClasses;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EquipesMataMataServicoTest {
 
-    private EquipesMataMataServico equipesMataMataServico;
+    private ConfrontosEquipesMataMataServico equipesMataMataServico;
     private ConstrutorClasses construtorClasses;
 
     @BeforeEach
     void init(){
         construtorClasses = new ConstrutorClasses();
-        equipesMataMataServico = new EquipesMataMataServico();
+        equipesMataMataServico = new ConfrontosEquipesMataMataServico();
     }
 
     @Test

@@ -1,6 +1,6 @@
 package com.erivelton.torneiofutebol.aplicacao.dto.requisicao;
 
-import com.erivelton.torneiofutebol.dominio.Confronto;
+import com.erivelton.torneiofutebol.dominio.modelo.confronto.Confronto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

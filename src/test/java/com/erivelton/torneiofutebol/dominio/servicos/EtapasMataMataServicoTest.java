@@ -1,6 +1,7 @@
 package com.erivelton.torneiofutebol.dominio.servicos;
 
-import com.erivelton.torneiofutebol.dominio.Etapa;
+import com.erivelton.torneiofutebol.dominio.modelo.etapa.Etapa;
+import com.erivelton.torneiofutebol.dominio.modelo.etapa.EtapasMataMataServico;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

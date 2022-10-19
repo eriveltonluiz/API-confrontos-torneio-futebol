@@ -2,9 +2,9 @@ package com.erivelton.torneiofutebol.aplicacao;
 
 import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.ConfrontoRequisicao;
 import com.erivelton.torneiofutebol.aplicacao.dto.requisicao.DadosEquipe;
-import com.erivelton.torneiofutebol.dominio.Confronto;
-import com.erivelton.torneiofutebol.dominio.Equipe;
-import com.erivelton.torneiofutebol.dominio.porta.ModeloCampeonato;
+import com.erivelton.torneiofutebol.dominio.modelo.confronto.Confronto;
+import com.erivelton.torneiofutebol.dominio.modelo.Equipe;
+import com.erivelton.torneiofutebol.dominio.porta.entrada.ModeloCampeonato;
 import jakarta.inject.Singleton;
 
 import java.util.List;

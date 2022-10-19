@@ -1,8 +1,8 @@
 package com.erivelton.torneiofutebol.utils;
 
-import com.erivelton.torneiofutebol.dominio.Confronto;
-import com.erivelton.torneiofutebol.dominio.Equipe;
-import com.erivelton.torneiofutebol.dominio.Jogador;
+import com.erivelton.torneiofutebol.dominio.modelo.confronto.Confronto;
+import com.erivelton.torneiofutebol.dominio.modelo.Equipe;
+import com.erivelton.torneiofutebol.dominio.modelo.Jogador;
 
 import java.util.List;
 

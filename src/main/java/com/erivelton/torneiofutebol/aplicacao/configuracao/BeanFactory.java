@@ -1,12 +1,11 @@
 package com.erivelton.torneiofutebol.aplicacao.configuracao;
 
-import com.erivelton.torneiofutebol.aplicacao.AplicacaoModeloCampeonato;
-import com.erivelton.torneiofutebol.dominio.porta.ConfrontoRepositoryPorta;
-import com.erivelton.torneiofutebol.dominio.porta.EquipeRepositoryPorta;
-import com.erivelton.torneiofutebol.dominio.porta.ModeloCampeonato;
-import com.erivelton.torneiofutebol.dominio.servicos.EquipesMataMataServico;
-import com.erivelton.torneiofutebol.dominio.servicos.EtapasMataMataServico;
-import com.erivelton.torneiofutebol.dominio.servicos.Torneio;
+import com.erivelton.torneiofutebol.dominio.porta.saida.ConfrontoRepositoryPorta;
+import com.erivelton.torneiofutebol.dominio.porta.saida.EquipeRepositoryPorta;
+import com.erivelton.torneiofutebol.dominio.porta.entrada.ModeloCampeonato;
+import com.erivelton.torneiofutebol.dominio.modelo.confronto.ConfrontosEquipesMataMataServico;
+import com.erivelton.torneiofutebol.dominio.modelo.etapa.EtapasMataMataServico;
+import com.erivelton.torneiofutebol.dominio.servicos.MapeamentoTorneio;
 import io.micronaut.context.annotation.Factory;
 import jakarta.inject.Singleton;
 
@@ -15,7 +14,7 @@ public class BeanFactory {
 
     @Singleton
     public ModeloCampeonato getModeloCampeonato(ConfrontoRepositoryPorta confrontoRepositoryPorta, EquipeRepositoryPorta equipeRepositoryPorta){
-        return new Torneio(confrontoRepositoryPorta, equipeRepositoryPorta, new EtapasMataMataServico(), new EquipesMataMataServico());
+        return new MapeamentoTorneio(confrontoRepositoryPorta, equipeRepositoryPorta, new EtapasMataMataServico(), new ConfrontosEquipesMataMataServico());
     }
 
 }
