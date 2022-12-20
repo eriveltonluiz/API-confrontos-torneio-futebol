@@ -2,6 +2,7 @@ package com.erivelton.torneiofutebol.aplicacao.dto.requisicao;
 
 import com.erivelton.torneiofutebol.dominio.modelo.confronto.Confronto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.Map;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Getter
 public class ConfrontoRequisicao {
 

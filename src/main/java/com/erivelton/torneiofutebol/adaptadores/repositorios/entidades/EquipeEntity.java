@@ -13,9 +13,7 @@ import java.util.stream.Collectors;
 
 @Entity
 @Getter
-@SuperBuilder
 @AllArgsConstructor
-@ToString
 public class EquipeEntity {
 
     @Id

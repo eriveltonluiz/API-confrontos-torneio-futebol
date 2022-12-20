@@ -26,13 +26,11 @@ public class EquipeRepositoryImpl implements EquipeRepositoryPorta {
     public List<Equipe> salvarTodos(List<Equipe> equipes) {
         List<EquipeEntity> equipesASeremPersistidas = equipes.stream()
                 .map(EquipeEntity::new)
-//                .map(equipe -> equipeMapper.paraEquipeEntityJpa(equipe, jogadorMapper))
                 .collect(Collectors.toList());
 
         List<EquipeEntity> equipesPersistidas = micronautEquipeRepository.saveAll(equipesASeremPersistidas);
 
         return equipesPersistidas.stream()
-//                .map(EquipeEntity::paraEquipe)
                 .map(equipeEntity -> equipeMapper.paraEquipe(equipeEntity, jogadorMapper))
                 .collect(Collectors.toList());
     }

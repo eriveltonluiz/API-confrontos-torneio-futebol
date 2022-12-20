@@ -26,7 +26,6 @@ public class JogadorEntity {
     @Column(nullable = false, name = "NOME")
     private String nome;
 
-    @Setter
     @Column(name = "GOL")
     private Integer gol;
 

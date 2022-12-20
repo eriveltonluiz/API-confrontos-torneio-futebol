@@ -1,6 +1,5 @@
 package com.erivelton.torneiofutebol.dominio.modelo.confronto;
 
-import com.erivelton.torneiofutebol.dominio.modelo.confronto.Confronto;
 import com.erivelton.torneiofutebol.dominio.modelo.Equipe;
 import com.erivelton.torneiofutebol.dominio.modelo.etapa.Etapa;
 

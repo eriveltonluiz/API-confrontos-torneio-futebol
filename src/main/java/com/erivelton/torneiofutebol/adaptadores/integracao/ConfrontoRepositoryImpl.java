@@ -37,7 +37,7 @@ public class ConfrontoRepositoryImpl implements ConfrontoRepositoryPorta {
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Identificação do confronto não foi encontrado"));
 
         confrontoEntity.atulizarGolsTimes(confronto.getGolsMandante(), confronto.getGolsVisitante());
-        confrontoEntity.atulizarGolsJogadoresTimes(confronto.getGolsJogadoresMandante(), confronto.getGolsJogadoresVisitante());
+        confrontoEntity.atualizarGolsJogadoresTimes(confronto.getGolsJogadoresMandante(), confronto.getGolsJogadoresVisitante());
 
         micronautEquipeRepository.updateAll(Arrays.asList(confrontoEntity.getMandante(), confrontoEntity.getVisitante()));
 

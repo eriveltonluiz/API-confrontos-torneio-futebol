@@ -23,13 +23,12 @@ public class ConstrutorClasses {
         return null;
     }
 
-    public Confronto builderConfrontoTeste(String time1, String time2, String etapa, Integer ordem, List<Jogador> jogadores1, List<Jogador> jogadores2){
+    public Confronto.ConfrontoBuilder builderConfrontoTeste(String time1, String time2, String etapa, Integer ordem, List<Jogador> jogadores1, List<Jogador> jogadores2){
         return Confronto.builder()
                 .mandante(builderEquipeTeste(time1, jogadores1))
                 .visitante(builderEquipeTeste(time2, jogadores2))
                 .etapa(etapa)
-                .ordem(ordem)
-                .build();
+                .ordem(ordem);
     }
 
 }

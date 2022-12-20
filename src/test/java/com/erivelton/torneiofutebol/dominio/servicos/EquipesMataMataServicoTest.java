@@ -28,7 +28,7 @@ class EquipesMataMataServicoTest {
     @Test
     void deveInserirConfrontosComTimesNaPrimeiraEtapa(){
         List<Confronto> confrontosEsperados = Arrays.asList(
-                construtorClasses.builderConfrontoTeste("time1", "time2", Etapa.FINAL.getEtapa(), 1, new ArrayList<>(), new ArrayList<>())
+                construtorClasses.builderConfrontoTeste("time1", "time2", Etapa.FINAL.getEtapa(), 1, new ArrayList<>(), new ArrayList<>()).build()
         );
 
         List<Equipe> mandantes = Arrays.asList(
@@ -45,10 +45,10 @@ class EquipesMataMataServicoTest {
     @Test
     void deveMapearConfrontosSemDefinicaoDeTimesDepoisDaPrimeiraEtapa(){
         List<Confronto> confrontosEsperados = Arrays.asList(
-                construtorClasses.builderConfrontoTeste("time1", "time2", Etapa.FINAL.getEtapa(), 1, new ArrayList<>(), new ArrayList<>()),
-                construtorClasses.builderConfrontoTeste("time3", "time4", Etapa.SEMI.getEtapa(), 2, new ArrayList<>(), new ArrayList<>()),
-                construtorClasses.builderConfrontoTeste("", "", Etapa.TERCEIRO_LUGAR.getEtapa(), 1, new ArrayList<>(), new ArrayList<>()),
-                construtorClasses.builderConfrontoTeste("", "", Etapa.FINAL.getEtapa(), 1, new ArrayList<>(), new ArrayList<>())
+                construtorClasses.builderConfrontoTeste("time1", "time2", Etapa.FINAL.getEtapa(), 1, new ArrayList<>(), new ArrayList<>()).build(),
+                construtorClasses.builderConfrontoTeste("time3", "time4", Etapa.SEMI.getEtapa(), 2, new ArrayList<>(), new ArrayList<>()).build(),
+                construtorClasses.builderConfrontoTeste("", "", Etapa.TERCEIRO_LUGAR.getEtapa(), 1, new ArrayList<>(), new ArrayList<>()).build(),
+                construtorClasses.builderConfrontoTeste("", "", Etapa.FINAL.getEtapa(), 1, new ArrayList<>(), new ArrayList<>()).build()
         );
 
         List<Equipe> mandantes = Arrays.asList(

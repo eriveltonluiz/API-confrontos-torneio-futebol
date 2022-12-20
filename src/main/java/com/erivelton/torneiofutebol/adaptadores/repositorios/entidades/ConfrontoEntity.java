@@ -60,7 +60,7 @@ public class ConfrontoEntity {
         this.golsVisitante = golsVisitante;
     }
 
-    public void atulizarGolsJogadoresTimes(Map<String, Integer> golsJogadoresMandante, Map<String, Integer> golsJogadoresVisitante) {
+    public void atualizarGolsJogadoresTimes(Map<String, Integer> golsJogadoresMandante, Map<String, Integer> golsJogadoresVisitante) {
         this.mandante.atulizarGolsJogadoresEquipe(golsJogadoresMandante);
         this.visitante.atulizarGolsJogadoresEquipe(golsJogadoresVisitante);
     }
