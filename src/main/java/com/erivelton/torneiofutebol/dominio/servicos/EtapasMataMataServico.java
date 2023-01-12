@@ -1,4 +1,6 @@
-package com.erivelton.torneiofutebol.dominio.modelo.etapa;
+package com.erivelton.torneiofutebol.dominio.servicos;
+
+import com.erivelton.torneiofutebol.dominio.modelo.etapa.Etapa;
 
 import java.util.ArrayList;
 import java.util.HashMap;

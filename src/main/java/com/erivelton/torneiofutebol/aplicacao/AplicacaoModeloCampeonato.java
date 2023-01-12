@@ -8,12 +8,16 @@ import com.erivelton.torneiofutebol.dominio.modelo.confronto.Confronto;
 import com.erivelton.torneiofutebol.dominio.modelo.Equipe;
 import com.erivelton.torneiofutebol.dominio.porta.entrada.ModeloCampeonato;
 import jakarta.inject.Singleton;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Singleton
 public class AplicacaoModeloCampeonato {
+
+    private static final Logger LOG = LoggerFactory.getLogger(AplicacaoModeloCampeonato.class);
 
     private final ValidacaoDados validacao;
 
@@ -27,7 +31,10 @@ public class AplicacaoModeloCampeonato {
         this.modeloCampeonato = modeloCampeonato;
     }
 
-    public void criar(List<DadosEquipe> dadosEquipe){
+    public void criar(List<DadosEquipe> dadosEquipe) {
+        LOG.info("Recebendo dados das equipes que formarão o campeonato: {}", dadosEquipe);
+
+        LOG.info("Validação dos dados das equipes");
         validacao.dadosEntrada(dadosEquipe);
 
         List<Equipe> equipes = dadosEquipe.stream()
@@ -37,7 +44,7 @@ public class AplicacaoModeloCampeonato {
         modeloCampeonato.elaborar(equipes);
     }
 
-    public void adicionarDadosConfronto(ConfrontoRequisicao confrontoRequisicao){
+    public void adicionarDadosConfronto(ConfrontoRequisicao confrontoRequisicao) {
         validacao.dadosEntrada(confrontoRequisicao);
         validacaoCustomizada.limite(confrontoRequisicao);
 
